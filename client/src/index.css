@@ -1,0 +1,18 @@
+#root {
+  height: 100%;
+  background-color: #DADADA;
+}
+
+#root > .grid {
+  height: 100%;
+}
+
+.column {
+  max-width: 450px;
+}
+
+.student-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
