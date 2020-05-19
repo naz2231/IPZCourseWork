@@ -3,6 +3,13 @@ import { Table } from 'semantic-ui-react'
 
 import { inventoryData } from '../../../../db/database';
 
+/**
+* Component to see inventory and its data
+* 
+* @returns (
+*  <ShowInventory />
+* )
+*/
 class ShowInventory extends Component {
     constructor() {
         super();
