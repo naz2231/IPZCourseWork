@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dropdown } from 'semantic-ui-react';
-
+//saved classes
 const inClasses = [
   { key: 1, text: 'IT-71', value: 'IT-71' },
   { key: 2, text: 'IT-72', value: 'IT-72' },
@@ -9,7 +9,7 @@ const inClasses = [
   { key: 5, text: 'IP-71', value: 'IP-71' },
   { key: 6, text: 'IP-72', value: 'IP-72' },
 ]
-
+//Saved schedule
 const schedules = [
   { key: 1, title: 'Основи права', teacher: 'Лісовиченко О.І.', auditorium: '201-18' },
   { key: 1, title: 'Основи радіотехніки', teacher: 'Рябцев Г.В.', auditorium: '203-18' },
@@ -30,7 +30,13 @@ const schedules = [
   { key: 6, title: 'Основи права', teacher: 'Заворикін А.П.', auditorium: '231-18' },
   { key: 6, title: 'Основи радіотехніки', teacher: 'Корнієнко Н.С.', auditorium: '211-18' }
 ]
-
+/**
+ * Component for finding schedule
+ * 
+ * @returns (
+ *  <Schedule />
+ * )
+ */
 const Schedule = () => {
   const [classes, setClasses] = useState(inClasses);
   const [currentClass, setCurrentClass] = useState({ key: 6, text: 'IP-72' });
