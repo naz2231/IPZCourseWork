@@ -53,7 +53,7 @@
 
 
 import React, { Component } from 'react';
-import { Table, Input, Dropdown } from 'semantic-ui-react'
+import { Table, Input } from 'semantic-ui-react'
 
 import {
   academicData,
