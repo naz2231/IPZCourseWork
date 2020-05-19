@@ -9,6 +9,9 @@ import CountPayments from './infoElements/CountPayments';
 import AddHostelResident from './actionElements/AddHostelResident';
 import AddInventory from './actionElements/AddInventory';
 
+/**
+ * Array of current component's tabs for navigation defined in format approperiate for semantic-ui-react.Tab panes attribute
+ */
 const panes = [
     { menuItem: 'Hostel info', render: () => <Tab.Pane><HostelInfo /></Tab.Pane> },
     { menuItem: 'Hostel residents info', render: () => <Tab.Pane><HostelResidentInfo /></Tab.Pane> },
@@ -19,4 +22,11 @@ const panes = [
     { menuItem: 'Add inventory', render: () => <Tab.Pane><AddInventory /></Tab.Pane> },
 ]
 
+/**
+ * component for displaying menu tabs of Campus worker page
+ * 
+ * @returns (
+ *  <InfoMenuBar />
+ * )
+ */
 export default () => <Tab panes={panes} />;
