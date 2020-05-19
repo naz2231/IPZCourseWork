@@ -3,7 +3,17 @@ import { Header as SHeader, Segment, Button } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 
 import { logout } from './../../containers/LoginPage/actions';
-
+/**
+ * Component for diaplying the username and logout button at top of the windows
+ * 
+ * 
+ * @param {object} props - component arguments
+ * @param {string} props.username - the username of loged user
+ * 
+ * @returns (
+ *  <Header username={username} />
+ * )
+ */
 const Header = ({ username }) => {
   const dispatch = useDispatch();
   let name = username.slice(1);
