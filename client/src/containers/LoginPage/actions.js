@@ -8,16 +8,19 @@ const clearToken = () => localStorage.removeItem('token');
 const setRole = role => localStorage.setItem('role', role);
 const clearRole = () => localStorage.removeItem('role');
 
+//setting user
 const setUser = user => ({
   type: SET_USER,
   payload: user,
 });
 
+//When loading a set
 const setIsLoading = isLoading => ({
   type: SET_IS_LOADING,
   payload: isLoading,
 });
 
+//Setting data for authenfication
 const setAuthData = (user, token) => (dispatch) => {
   setToken(token);
   setRole(user.role);
