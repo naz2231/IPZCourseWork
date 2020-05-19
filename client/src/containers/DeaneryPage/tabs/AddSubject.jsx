@@ -11,10 +11,12 @@ import {
   auditoriumData,
 } from './../../../db/database';
 
+// Returns an info about teacher
 const teachers = academicData.map(({ id, firstname, lastname }) => {
   return { key: id, text: firstname + ' ' + lastname, value: firstname + ' ' + lastname }
 });
 
+//Returns data about discipline
 const disciplines = disciplineData.map(({ id, title }) => {
   return { key: id, text: title, value: title }
 })
@@ -25,6 +27,13 @@ const groups = groupData.map(({ id, title }) => {
 
 let i = 100;
 
+/**
+* Component for adding a new subject
+* 
+* @returns (
+*  <AddSubject />
+* )
+*/
 const AddSubject = () => {
   const [currentTeacher, setCurrentTeacher] = useState(teachers[0]);
   const [auditorium, setAudorium] = useState(0);
