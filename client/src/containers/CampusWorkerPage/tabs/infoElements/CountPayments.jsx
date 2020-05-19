@@ -3,6 +3,13 @@ import { Table } from 'semantic-ui-react'
 
 import { chequeData, hostelResidentData, studentData, roomData, roomTypeData } from '../../../../db/database';
 
+/**
+ * Counting all payments
+ * 
+ * @returns (
+ *  <CountPayments />
+ * )
+ */
 class CountPayments extends Component {
     constructor() {
         super();
