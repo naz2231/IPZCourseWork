@@ -15,6 +15,13 @@ import {
   departmentData
 } from '../../../db/database';
 
+/**
+ * Component for searching person using name and surname 
+ * 
+ * @returns (
+ *  <SearchPanel />
+ * )
+ */
 class SearchPanel extends Component {
   constructor() {
     super();
@@ -76,7 +83,15 @@ class SearchPanel extends Component {
         </Table>
       )
     }
-
+    
+    /**
+     * Component for diaplying the username and logout button at top of the windows
+     *
+     * 
+     * @returns (
+     *  <renderStudendTable />
+     * )
+     */
     const renderStudentTable = () => {
       return (
         <Table unstackable>
