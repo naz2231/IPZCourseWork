@@ -3,6 +3,13 @@ import { Form } from 'semantic-ui-react'
 
 import { inventoryData } from '../../../../db/database';
 
+/**
+ * Component for addind something to the inventory
+ * 
+ * @returns (
+ *  <AddInventory />
+ * )
+ */
 class AddInventory extends Component {
     constructor() {
         super();
@@ -25,7 +32,12 @@ class AddInventory extends Component {
         }
         return null;
     }
-
+    
+    /**
+    * Component for submitting inventory
+    *
+    *  @param {Event} e submitting an inventory element
+    */
     onSubmit = e => {
         const { name, count } = this.state;
         if (name === "" || count === "") {
