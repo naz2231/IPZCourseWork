@@ -3,6 +3,13 @@ import { Table } from 'semantic-ui-react'
 
 import { hostelData } from '../../../../db/database';
 
+/**
+* Component that gives information about Hostel
+* 
+* @returns (
+*  <HostelInfo />
+* )
+*/
 class HostelInfo extends Component {
     constructor() {
         super();
