@@ -9,7 +9,13 @@ import {
   groupData,
   academicData
 } from './../../../db/database'
-
+/**
+ * Component for displaying lessons schedule
+ * 
+ * @returns (
+ *  <LessonSchedule />
+ * )
+ */
 const LessonSchedule = () => {
   const [schedule, setSchedule] = useState([])
   useEffect(() => {
