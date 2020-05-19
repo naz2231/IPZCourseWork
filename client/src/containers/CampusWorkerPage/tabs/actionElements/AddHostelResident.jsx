@@ -1,8 +1,20 @@
+/**
+ * 
+ *
+ * @brief	Add hostel resident class
+ */
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react'
 
 import { hostelData, hostelResidentData, studentData, roomData, groupData, privelegeData } from '../../../../db/database';
 
+/**
+ * Component for addind guys to campus
+ * 
+ * @returns (
+ *  <AddHostelResident />
+ * )
+ */
 class AddHostelResident extends Component {
     constructor() {
         super();
@@ -46,7 +58,13 @@ class AddHostelResident extends Component {
         }
         return null;
     }
-
+    
+    /**
+    * An enum constant representing the on submit option
+    * @param {Event} e gets params of a person
+    * 
+    * )
+    */
     onSubmit = e => {
         const { firstname, lastname, group, privelege, hostel, room, abilities } = this.state;
         if (firstname === "" || lastname === "" || lastname === "" || group === "" || hostel === "" || room === "") {
