@@ -3,7 +3,13 @@ import { Input } from 'semantic-ui-react';
 
 import { examData, disciplineData, controlTypeData, studentData, subjectTeachingData } from '../../../db/database';
 
-
+/**
+ * Component for giving and saving marks
+ * 
+ * @returns (
+ *  <Marks />
+ * )
+ */
 const Marks = () => {
   const [query, setQuery] = useState('');
 
@@ -20,6 +26,13 @@ const Marks = () => {
       return false;
     }
   }
+    /**
+     * Component for giving marks to the currrent student
+     * 
+     * @returns (
+     *  <renderMarks />
+     * )
+     */
 
   const renderMarks = () => {
     return (
