@@ -15,6 +15,13 @@ import { loadCurrentUser } from './../../containers/LoginPage/actions';
 import Spinner from './../../components/Spinner';
 import Header from './../../components/Header'
 
+/**
+ * Component for routing
+ * 
+ * @returns (
+ *  <Routing />
+ * )
+ */
 const Rounting = () => {
   const dispatch = useDispatch();
   const { isLoading: userLoading, user, isAuthorized } = useSelector(state => state.profile);
