@@ -3,6 +3,13 @@ import { Table } from 'semantic-ui-react'
 
 import { chequeData, hostelResidentData, studentData } from '../../../../db/database';
 
+/**
+* Component to see payment checks and their date
+* 
+* @returns (
+* <ShowChecks />
+* )
+*/
 class ShowChecks extends Component {
     constructor() {
         super();
