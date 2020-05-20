@@ -31,6 +31,7 @@
     "@types/passport": "^1.0.2",
     "@types/passport-jwt": "^3.0.3",
     "@types/passport-local": "^1.0.33",
+    "jsdoc": "^3.6.4",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.7.2"
   }

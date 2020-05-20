@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "docs": "jsdoc -c jsdoc.conf.json",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "better-docs": "^2.0.1",
+    "jsdoc": "^3.6.4"
   }
 }

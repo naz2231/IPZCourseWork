@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> containers/StudentPage/tabs/Marks.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">My React components</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#AddSubject">AddSubject</a></li><li><a href="global.html#DeaneryPage">DeaneryPage</a></li><li><a href="global.html#getFetchArgs">getFetchArgs</a></li><li><a href="global.html#getFetchUrl">getFetchUrl</a></li><li><a href="global.html#GuestRoute">GuestRoute</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LessonSchedule">LessonSchedule</a></li><li><a href="global.html#Marks">Marks</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#Rounting">Rounting</a></li><li><a href="global.html#Schedule">Schedule</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#throwIfResponseFailed">throwIfResponseFailed</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>containers/StudentPage/tabs/Marks.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import { Input } from 'semantic-ui-react';
+
+import { examData, disciplineData, controlTypeData, studentData, subjectTeachingData } from '../../../db/database';
+
+/**
+ * Component for giving and saving marks
+ * 
+ * @returns (
+ *  &lt;Marks />
+ * )
+ */
+const Marks = () => {
+  const [query, setQuery] = useState('');
+
+  const matches = (firstname, lastname) => {
+    const queryParts = query.split(/ +/);
+    if (query === "") {
+      return true;
+    } else {
+      for (const part of queryParts) {
+        if ((firstname + " " + lastname).includes(part)) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+    /**
+     * Component for giving marks to the currrent student
+     * 
+     * @returns (
+     *  &lt;renderMarks />
+     * )
+     */
+
+  const renderMarks = () => {
+    return (
+      &lt;table className="ui celled structured table">
+        &lt;thead>
+          &lt;tr>
+            &lt;th rowSpan="2">Student&lt;/th>
+            &lt;th rowSpan="2">Subject&lt;/th>
+            &lt;th rowSpan="2">Control type&lt;/th>
+            &lt;th rowSpan="2">Mark&lt;/th>
+          &lt;/tr>
+        &lt;/thead>
+        &lt;tbody>
+          {studentData
+            .filter(student => matches(student.firstname, student.lastname))
+            .map(student => {
+              const exam = examData.filter(item => item.studentId === student.id);
+              for (const ex of exam) {
+                const subjectTeaching = subjectTeachingData.filter(item => item.id === ex.subjectTeachingId)[0];
+                const controlType = controlTypeData.filter(item => item.id === subjectTeaching.controlTypeId)[0];
+                const discipline = disciplineData.filter(item => item.id === subjectTeaching.disciplineId)[0];
+                return (
+                  &lt;div>
+                    &lt;tr key={student.id}>
+                      &lt;td>{student.firstname} {student.lastname}&lt;/td>
+                      &lt;td>{discipline.title}&lt;/td>
+                      &lt;td>{controlType.type}&lt;/td>
+                      &lt;td>{ex.mark}&lt;/td>
+                    &lt;/tr>
+                  &lt;/div>
+                )
+              }
+            })}
+        &lt;/tbody>
+      &lt;/table>
+    )
+  }
+
+  return (
+    &lt;div className="ui middle aligned center aligned grid">
+      &lt;div className="column">
+        &lt;Input type="text" onChange={e => setQuery(e.target.value)} placeholder="name" />
+        &lt;div style={{ marginTop: '20px' }}>
+          {query ? renderMarks() : null}
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  )
+}
+
+export default Marks;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

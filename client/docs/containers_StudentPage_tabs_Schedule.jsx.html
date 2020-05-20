@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> containers/StudentPage/tabs/Schedule.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">My React components</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#AddSubject">AddSubject</a></li><li><a href="global.html#DeaneryPage">DeaneryPage</a></li><li><a href="global.html#getFetchArgs">getFetchArgs</a></li><li><a href="global.html#getFetchUrl">getFetchUrl</a></li><li><a href="global.html#GuestRoute">GuestRoute</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LessonSchedule">LessonSchedule</a></li><li><a href="global.html#Marks">Marks</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#Rounting">Rounting</a></li><li><a href="global.html#Schedule">Schedule</a></li><li><a href="global.html#Spinner">Spinner</a></li><li><a href="global.html#throwIfResponseFailed">throwIfResponseFailed</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>containers/StudentPage/tabs/Schedule.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import { Dropdown } from 'semantic-ui-react';
+//saved classes
+const inClasses = [
+  { key: 1, text: 'IT-71', value: 'IT-71' },
+  { key: 2, text: 'IT-72', value: 'IT-72' },
+  { key: 3, text: 'IT-73', value: 'IT-73' },
+  { key: 4, text: 'IT-74', value: 'IT-74' },
+  { key: 5, text: 'IP-71', value: 'IP-71' },
+  { key: 6, text: 'IP-72', value: 'IP-72' },
+]
+//Saved schedule
+const schedules = [
+  { key: 1, title: 'Основи права', teacher: 'Лісовиченко О.І.', auditorium: '201-18' },
+  { key: 1, title: 'Основи радіотехніки', teacher: 'Рябцев Г.В.', auditorium: '203-18' },
+  { key: 1, title: 'Бази даних', teacher: 'Корнієнко Н.С.', auditorium: '301-18' },
+  { key: 2, title: 'Основи програмування', teacher: 'Мамедов В.О.', auditorium: '232-18' },
+  { key: 2, title: 'Основи менеджменту', teacher: 'Корнага Я.І.', auditorium: '222-18' },
+  { key: 2, title: 'Основи права', teacher: 'Рябцев Г.В.', auditorium: '223-18' },
+  { key: 3, title: 'Бази даних', teacher: 'Заворикін А.П.', auditorium: '212-18' },
+  { key: 3, title: 'Основи програмування', teacher: 'Корнага Я.І.', auditorium: '311-18' },
+  { key: 3, title: 'Бази даних', teacher: 'Лісовиченко О.І.', auditorium: '131-18' },
+  { key: 4, title: 'Основи менеджменту', teacher: 'Заворикін А.П.', auditorium: '454-18' },
+  { key: 4, title: 'Українська мова', teacher: 'Мамедов В.О.', auditorium: '234-18' },
+  { key: 4, title: 'Бази даних', teacher: 'Рябцев Г.В.', auditorium: '455-18' },
+  { key: 5, title: 'Основи програмування', teacher: 'Корнага Я.І.', auditorium: '566-18' },
+  { key: 5, title: 'Бази даних', teacher: 'Корнієнко Н.С.', auditorium: '456-18' },
+  { key: 5, title: 'Основи менеджменту', teacher: 'Лісовиченко О.І.', auditorium: '123-18' },
+  { key: 6, title: 'Українська мова', teacher: 'Мамедов В.О.', auditorium: '121-18' },
+  { key: 6, title: 'Основи права', teacher: 'Заворикін А.П.', auditorium: '231-18' },
+  { key: 6, title: 'Основи радіотехніки', teacher: 'Корнієнко Н.С.', auditorium: '211-18' }
+]
+/**
+ * Component for finding schedule
+ * 
+ * @returns (
+ *  &lt;Schedule />
+ * )
+ */
+const Schedule = () => {
+  const [classes, setClasses] = useState(inClasses);
+  const [currentClass, setCurrentClass] = useState({ key: 6, text: 'IP-72' });
+
+  const getRandomSchedule = () => {
+    function randomScheduleItem() {
+      return schedules[Math.floor(Math.random() * schedules.length)]
+    }
+
+    return Array(10).fill({}).map(o => randomScheduleItem())
+  }
+  
+  const renderSchedule = () => {
+    const schedule = getRandomSchedule();
+
+    return (
+      &lt;table class="ui celled structured table">
+        &lt;thead>
+          &lt;tr>
+            &lt;th rowSpan="2">Day of the week&lt;/th>
+            &lt;th rowSpan="2">Subject&lt;/th>
+            &lt;th rowSpan="2">Teacher&lt;/th>
+            &lt;th rowSpan="2">Auditorium&lt;/th>
+          &lt;/tr>
+        &lt;/thead>
+        &lt;tbody>
+          &lt;tr>
+            &lt;td rowSpan="2">Monday&lt;/td>
+            &lt;td>{schedule[0].title}&lt;/td>
+            &lt;td>{schedule[0].teacher}&lt;/td>
+            &lt;td>{schedule[0].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td>{schedule[1].title}&lt;/td>
+            &lt;td>{schedule[1].teacher}&lt;/td>
+            &lt;td>{schedule[1].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td rowSpan="2">Tuesday&lt;/td>
+            &lt;td>{schedule[2].title}&lt;/td>
+            &lt;td>{schedule[2].teacher}&lt;/td>
+            &lt;td>{schedule[2].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td>{schedule[3].title}&lt;/td>
+            &lt;td>{schedule[3].teacher}&lt;/td>
+            &lt;td>{schedule[3].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td rowSpan="2">Wednesday&lt;/td>
+            &lt;td>{schedule[4].title}&lt;/td>
+            &lt;td>{schedule[4].teacher}&lt;/td>
+            &lt;td>{schedule[4].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td>{schedule[5].title}&lt;/td>
+            &lt;td>{schedule[5].teacher}&lt;/td>
+            &lt;td>{schedule[5].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td rowSpan="2">Thursday&lt;/td>
+            &lt;td>{schedule[6].title}&lt;/td>
+            &lt;td>{schedule[6].teacher}&lt;/td>
+            &lt;td>{schedule[6].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td>{schedule[7].title}&lt;/td>
+            &lt;td>{schedule[7].teacher}&lt;/td>
+            &lt;td>{schedule[7].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td rowSpan="2">Friday&lt;/td>
+            &lt;td>{schedule[8].title}&lt;/td>
+            &lt;td>{schedule[8].teacher}&lt;/td>
+            &lt;td>{schedule[8].auditorium}&lt;/td>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td>{schedule[9].title}&lt;/td>
+            &lt;td>{schedule[9].teacher}&lt;/td>
+            &lt;td>{schedule[9].auditorium}&lt;/td>
+          &lt;/tr>
+        &lt;/tbody>
+      &lt;/table>
+    )
+  }
+  
+  return (
+    &lt;div className="ui middle aligned center aligned grid">
+      &lt;div className="column">
+        &lt;Dropdown
+          placeholder='Select your class'
+          selection
+          options={classes}
+          value={currentClass.value}
+          onChange={(e, value) => setCurrentClass(value)}
+        />
+        &lt;div style={{ "width": "50%" }}>
+          {currentClass.value ? renderSchedule() : null}
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  )
+}
+
+export default Schedule;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>
