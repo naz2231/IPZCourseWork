@@ -2,10 +2,22 @@ import queryString from 'query-string';
 
 const API_URL = 'http://localhost:8000';
 
+/**
+ *  function for formating querystring
+ * @param {object} args querystring parameters
+ * 
+ * @returns {string} - formated string
+ */
 function getFetchUrl(args) {
   return API_URL + args.endpoint + (args.query ? `?${queryString.stringify(args.query)}` : '');
 }
 
+/**
+ * function for formatign request body
+ * @param {*} args - body parameters
+ * 
+ * @returns {object} - optiong for fetch request
+ */
 function getFetchArgs(args){
   const headers = {};
   if (!args.attachment) {
@@ -38,6 +50,13 @@ function getFetchArgs(args){
   };
 }
 
+/**
+ * 
+ * @param {*} res - fetch resposnse
+ * 
+ * @returns {object} - parsed body
+ * @exception - request exception
+ */
 export async function throwIfResponseFailed(res) {
   if (!res.ok) {
     let parsedException = 'Something went wrong with request!';

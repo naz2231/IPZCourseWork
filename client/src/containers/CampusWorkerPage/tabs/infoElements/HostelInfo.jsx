@@ -38,7 +38,7 @@ class HostelInfo extends Component {
                     <Table.Body>
                         {hostel && hostel.map(item => {
                             return (
-                                <Table.Row>
+                                <Table.Row key={item.number}>
                                     <Table.Cell>{item.number}</Table.Cell>
                                     <Table.Cell>{item.head}</Table.Cell>
                                 </Table.Row>

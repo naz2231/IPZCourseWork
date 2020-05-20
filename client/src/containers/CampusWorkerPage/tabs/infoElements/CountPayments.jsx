@@ -54,7 +54,7 @@ class CountPayments extends Component {
                             const roomPrice = roomTypeData.filter(item => item.id === roomTypeId)[0].price;
                             const totalSum = roomPrice * 4;
                             return (
-                                <Table.Row>
+                                <Table.Row key={sum + roomTypeId}>
                                     <Table.Cell>{stud.firstname} {stud.lastname}</Table.Cell>
                                     <Table.Cell>{sum}</Table.Cell>
                                     <Table.Cell>{residentChecks.length}</Table.Cell>

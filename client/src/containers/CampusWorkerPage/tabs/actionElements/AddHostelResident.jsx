@@ -84,19 +84,19 @@ class AddHostelResident extends Component {
                 alert('room is full');
             } else {
                 const id = this.getId(hostelResidentData);
-                hostelResidentData.push(new Object({
+                hostelResidentData.push({
                     id: id,
                     abilities: abilities,
                     studentId: student[0].id,
                     roomId: roomId,
                     privelegeId: privelegeId
-                }))
+                })
             }
         }
     }
 
     render() {
-        const groups = groupData.map(item => new Object({
+        const groups = groupData.map(item => ({
             key: item.title,
             text: item.title,
             value: item.id

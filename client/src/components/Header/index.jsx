@@ -3,6 +3,7 @@ import { Header as SHeader, Segment, Button } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 
 import { logout } from './../../containers/LoginPage/actions';
+
 /**
  * Component for diaplying the username and logout button at top of the windows
  * 
@@ -16,8 +17,7 @@ import { logout } from './../../containers/LoginPage/actions';
  */
 const Header = ({ username }) => {
   const dispatch = useDispatch();
-  let name = username.slice(1);
-  name = name[0].toUpperCase() + name.slice(1);
+  const name = username[0].toUpperCase() + username.slice(1);
   return (
     <Segment clearing>
       <SHeader as="h2" floated='right'>

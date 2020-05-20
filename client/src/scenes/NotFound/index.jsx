@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * component for diaplying NotFound status and link for home page
+ * 
+ * @returns (<NotFound />)
+ */
 const NotFound = () => {
   const role = localStorage.getItem('role');
   return (

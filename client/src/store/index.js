@@ -16,7 +16,7 @@ const reducers = {
 };
 const rootReducer = combineReducers({
   router: connectRouter(history),
-  ...reducers,  
+  ...reducers,
 });
 const store = createStore(rootReducer, initialState, composedEnhancers);
 

@@ -54,7 +54,7 @@ class HostelResidentInfo extends Component {
                             const privelege_type = (priv ? priv.name : "null");
 
                             return (
-                                    <Table.Row>
+                                    <Table.Row key={firstname + lastname}>
                                         <Table.Cell>{firstname}</Table.Cell>
                                         <Table.Cell>{lastname}</Table.Cell>
                                         <Table.Cell>{class_title}</Table.Cell>

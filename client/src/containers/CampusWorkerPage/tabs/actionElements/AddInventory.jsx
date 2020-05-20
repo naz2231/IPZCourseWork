@@ -52,11 +52,11 @@ class AddInventory extends Component {
                 alert('count must be a number');
             } else {
                 const id = this.getId(inventoryData);
-                inventoryData.push(new Object({
+                inventoryData.push({
                     id: id,
                     name: name,
                     count: count
-                }))
+                })
             }
             console.log(inventoryData);
         }

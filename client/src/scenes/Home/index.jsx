@@ -6,6 +6,11 @@ import store, { history } from './../../store';
 
 import Rounting from './../../containers/Routing';
 
+/**
+ * component for displyong routing
+ * 
+ * @returns ( <Homer />)
+ */
 const Home =  () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
